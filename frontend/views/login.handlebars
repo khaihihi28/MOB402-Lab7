@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <div class="container pt-5">
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Đăng nhập</h2>
+                        <form action="/auth/login" method="post">
+                            <div class="form-group">
+                                <label for="username">username:</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="Enter your email" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password:</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter password" required />
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block"
+                                onsubmit={handleSubmit}>Login</button>
+                        </form>
+                        <form action="/">
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;"
+                                href="/home">Hủy</button>
+                        </form>
+                        <hr />
+                        <p class="text-center">Bạn chưa có tài khoản ?<a href="/auth/register">Đăng ký</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const handleSubmit = (e) => {
+            e.preventDefault();
+        }
+    </script>
+</body>
+
+</html>

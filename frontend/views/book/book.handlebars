@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">GUCCI xin chào: {{hoTen}}</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form method="get" action="/book/add"><input type="submit" value="ADD" class="btn btn-danger"
+                        style="margin: 10px;" />
+                </form>
+            </li>
+            <li>
+                <form method="POST" action="/auth/logout"><input type="submit" value="Đăng xuất" class="btn btn-danger"
+                        style="margin: 10px;" />
+                </form>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<h3 class="text-center">List Sách</h3>
+<table class="table  table-hover">
+    <tr>
+        <th style="width: 10%;">isBn</th>
+        <th>Tiêu đề</th>
+        <th>Tác giả</th>
+        <th>publisher</th>
+        <th style="width: 13%;"></th>
+    </tr>
+    {{#each book}}
+    <tr>
+        <td>
+            <h4>{{this.isbn}}</h4>
+        </td>
+        <td><b style="color: red;">{{this.title}}</b></td>
+        <td>{{this.author}}</td>
+        <td>{{this.publisher}}</td>
+        <td><a href="/product/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a> | <a
+                href="/product/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa
+                không ?')">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
